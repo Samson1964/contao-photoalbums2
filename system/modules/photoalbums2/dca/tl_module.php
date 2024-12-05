@@ -534,8 +534,8 @@ class tl_module_photoalbums2 extends Pa2Backend
     public function fixPa2Palette()
     {
         // Get pa2Mode
-        $objModule = ModuleModel::findByPk(\Input::get('id'));
-        $pa2Mode = $objModule->pa2Mode;
+        $objModule = \ModuleModel::findByPk(\Input::get('id'));
+        $pa2Mode = isset($objModule->pa2Mode) ? $objModule->pa2Mode : '';
 
         // If pa2Mode is not set
         if ($pa2Mode != 'pa2_on_one_page' && $pa2Mode != 'pa2_only_album_view' && $pa2Mode != 'pa2_with_detail_page') {
@@ -563,7 +563,7 @@ class tl_module_photoalbums2 extends Pa2Backend
         }
 
         // Fix pa2 field position via type
-        switch ($objModule->type) {
+        switch (isset($objModule->type)) {
             case 'photoalbums2list':
                 $GLOBALS['TL_DCA']['tl_module']['fields']['pa2AlbumsMetaFields']['eval']['tl_class'] = 'w50 cbxes clr';
                 break;
@@ -574,7 +574,7 @@ class tl_module_photoalbums2 extends Pa2Backend
         }
 
         // Remove fields from palette
-        if ($objModule->pa2AlbumSortType != 'custom') {
+        if (isset($objModule->pa2AlbumSortType) != 'custom') {
             $this->removeFromPalette('tl_module', 'photoalbums2', 'pa2AlbumSort');
         }
     }
