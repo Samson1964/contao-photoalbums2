@@ -1,6 +1,6 @@
 {
-    "name": "craffft/contao-photoalbums2",
-    "description": "Photoalbums2 for Contao OpenSource CMS",
+    "name": "schachbulle/contao-photoalbums2",
+    "description": "Photoalbums2 für Contao OpenSource CMS",
     "keywords": ["gallery", "album", "images", "photos", "pictures"],
     "type": "contao-module",
     "homepage": "http://craffft.de",
@@ -14,12 +14,12 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/Craffft/contao-photoalbums2/issues",
-        "source": "https://github.com/Craffft/contao-photoalbums2"
+        "issues": "https://github.com/Samson1964/contao-photoalbums2/issues",
+        "source": "https://github.com/Samson1964/contao-photoalbums2"
     },
     "require": {
-        "php": ">=5.6",
-        "contao/core-bundle": ">=4.4,<5.0",
+        "php": ">=5.6 | >=7.0 | >=8.0",
+        "contao/core-bundle": ">4.4,<5.0",
         "contao-community-alliance/composer-plugin": "^2.4.0 || 3.*",
         "craffft/contao-imagesortwizard": "~2.3",
         "craffft/contao-sortwizard": "~1.4",
