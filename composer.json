@@ -23,7 +23,7 @@
         "contao-community-alliance/composer-plugin": "^2.4.0 || 3.*",
         "craffft/contao-imagesortwizard": "~2.3",
         "craffft/contao-sortwizard": "~1.4",
-        "craffft/translation-fields-bundle": "*"
+        "schachbulle/translation-fields-bundle": "*"
     },
     "autoload": {
         "classmap": ["system/"]

@@ -696,12 +696,12 @@ class tl_photoalbums2_album extends Pa2Backend
         $objAlbum = \Photoalbums2AlbumModel::findByPk(\Input::get('id'));
 
         // Remove from palette
-        if ($objAlbum->previewImageType != 'select_preview_image') {
+        if (isset($objAlbum->previewImageType) != 'select_preview_image') {
             $this->removeFromPalette('tl_photoalbums2_album', 'default', 'previewImage');
         }
 
         // Remove from palette
-        if ($objAlbum->imageSortType != 'custom') {
+        if (isset($objAlbum->imageSortType) != 'custom') {
             $this->removeFromPalette('tl_photoalbums2_album', 'default', 'imageSort');
         }
     }
