@@ -216,33 +216,49 @@ $GLOBALS['TL_DCA']['tl_photoalbums2_album'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['event'],
             'exclude'                 => true,
             'search'                  => true,
-            'inputType'               => 'TranslationTextField',
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
+            'inputType'               => 'text',
+			'load_callback'           => array
+			(
+				array('\TranslationFieldsHelper', 'getTranslation')
+			),
+			'sql'                     => "varchar(255) NOT NULL default ''",
         ),
         'place' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['place'],
             'exclude'                 => true,
             'search'                  => true,
-            'inputType'               => 'TranslationTextField',
+            'inputType'               => 'text',
+			'load_callback'           => array
+			(
+				array('\TranslationFieldsHelper', 'getTranslation')
+			),
+			'sql'                     => "varchar(255) NOT NULL default ''",
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'w50'),
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
         ),
         'photographer' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['photographer'],
             'exclude'                 => true,
             'search'                  => true,
-            'inputType'               => 'TranslationTextField',
+            'inputType'               => 'text',
+			'load_callback'           => array
+			(
+				array('\TranslationFieldsHelper', 'getTranslation')
+			),
+			'sql'                     => "varchar(255) NOT NULL default ''",
             'eval'                    => array('maxlength' => 255, 'tl_class' => 'clr'),
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
         ),
         'description' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['description'],
             'exclude'                 => true,
             'search'                  => true,
-            'inputType'               => 'TranslationTextArea',
+            'inputType'               => 'textarea',
+			'load_callback'           => array
+			(
+				array('\TranslationFieldsHelper', 'getTranslation')
+			),
             'eval'                    => array('rte' => 'tinyMCE', 'tl_class' => 'clr'),
-            'sql'                     => "int(10) unsigned NOT NULL default '0'",
+            'sql'                     => "mediumtext NULL",
         ),
         'protected' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['protected'],
@@ -456,7 +472,7 @@ class tl_photoalbums2_album extends Pa2Backend
         $key = $arrRow['published'] ? 'published' : 'unpublished';
 
         // Do not hide preview images
-        if (!$GLOBALS['TL_CONFIG']['pa2HidePreviewImageInBackend']) {
+        if (!isset($GLOBALS['TL_CONFIG']['pa2HidePreviewImageInBackend'])) {
             $objAlbum = \Photoalbums2AlbumModel::findByPk($arrRow['id']);
 
             if ($objAlbum !== null) {
@@ -705,4 +721,5 @@ class tl_photoalbums2_album extends Pa2Backend
             $this->removeFromPalette('tl_photoalbums2_album', 'default', 'imageSort');
         }
     }
+
 }

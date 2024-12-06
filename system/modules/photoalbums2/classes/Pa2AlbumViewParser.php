@@ -57,7 +57,7 @@ class Pa2AlbumViewParser extends \Pa2ViewParser
         $this->Template->showHeadline = $this->Template->pa2AlbumsShowHeadline;
         $this->Template->showTitle = $this->Template->pa2AlbumsShowTitle;
         $this->Template->showTeaser = $this->Template->pa2AlbumsShowTeaser;
-        $this->Template->teaser = $this->cleanRteOutput(\TranslationFields::translateValue($this->Template->pa2Teaser));
+        $this->Template->teaser = $this->cleanRteOutput(\TranslationFieldsHelper::getTranslation($this->Template->pa2Teaser));
         $this->Template->showHeadline = ($this->Template->headline != '' ? $this->Template->showHeadline : false);
         $this->Template->showTeaser = ($this->Template->teaser != '' ? $this->Template->showTeaser : false);
 
@@ -92,12 +92,12 @@ class Pa2AlbumViewParser extends \Pa2ViewParser
         $objPa2Pagination = new \Pa2Pagination($arrAllAlbums, $this->Template->intMaxItems,
             $this->Template->intItemsPerPage);
         $arrAlbums = $objPa2Pagination->getItems();
+
         $this->Template->pagination = $objPa2Pagination->getPagination();
         $this->Template->totalItems = $objPa2Pagination->getTotalItems();
 
         // Get albums of this page as object
         $objPa2Album = new \Pa2Album($arrAlbums, $this->Template->getData());
-
         $this->objAlbums = $objPa2Album->getAlbums();
 
         // Call parseAlbums

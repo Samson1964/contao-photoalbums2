@@ -1,6 +1,12 @@
 # Changelog Photoalbums2
 
+## Version 1.1.0 (2024-12-06)
+
 * Change: Änderungen wegen translation-fields-bundle
+* Add: Tabelle tl_translation_fields, um diese als Dummy vorrätig zu haben
+* Add: Model TranslationFieldsModel für den Zugriff auf Tabelle tl_translation_fields
+* Change: Felder event, place, photographer, description in tl_photoalbums2_album von int(10) auf varchar(255) bzw. text
+* Add: Klasse TranslationFieldsHelper
 
 ## Version 1.0.5 (2024-12-06)
 

@@ -227,7 +227,7 @@ abstract class Pa2ViewParser extends \Frontend
                 foreach ($objTemplate->arrMetaFields as $metaField) {
                     if ($objTemplate->$metaField != '') {
                         $strMetaFieldDescription = $GLOBALS['TL_LANG']['PA2']['pa2MetaFieldDescription'][$metaField];
-                        $strMetaFieldWithoutDescription = $GLOBALS['TL_LANG']['PA2']['pa2MetaFieldWithoutDescription'][$metaField];
+                        $strMetaFieldWithoutDescription = isset($GLOBALS['TL_LANG']['PA2']['pa2MetaFieldWithoutDescription'][$metaField]) ? $GLOBALS['TL_LANG']['PA2']['pa2MetaFieldWithoutDescription'][$metaField] : '';
 
                         // Set strValue
                         $strValue = $strMetaFieldWithoutDescription;
@@ -422,23 +422,27 @@ abstract class Pa2ViewParser extends \Frontend
             return $objTemplate;
         }
 
-        // Add array
-        $arrLink = array(
-            'id'    => $objPage->id,
-            'alias' => $objPage->alias,
-        );
+		// Add array
+		$arrLink = array(
+			'id'       => $objPage->id,
+			'alias'    => $objPage->alias,
+			'language' => $objPage->language,
+		);
 
-        if (!empty($objTemplate->intDetailPage) && is_numeric($objTemplate->intDetailPage)) {
-            $objDetailPage = $this->getPageDetails($objTemplate->intDetailPage);
+		if(!empty($objTemplate->intDetailPage) && is_numeric($objTemplate->intDetailPage)) 
+		{
+			// intDetailPage ist nicht leer und ist numerisch
+			// wird nicht aufgerufen, wenn Albumfotoseite gleich Albumübersichtsseite
+			$objDetailPage = \Controller::getPageDetails($objTemplate->intDetailPage);
+			// $arrLink ändern und erweitern
+			$arrLink['id'] = $objDetailPage->id;
+			$arrLink['alias'] = $objDetailPage->alias;
+			$arrLink['language'] = $objDetailPage->language;
+		}
 
-            $arrLink['id'] = $objDetailPage->id;
-            $arrLink['alias'] = $objDetailPage->alias;
-            $arrLink['language'] = $objDetailPage->language;
-        }
-
-        $objTemplate->href = $this->generateFrontendUrl($arrLink,
-            sprintf(($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/album/%s'), $objAlbum->alias),
-            $objDetailPage->language);
+		$pageModel = \PageModel::findByPK($arrLink['id']);
+		$href = \Controller::generateFrontendUrl($pageModel->row(), sprintf(($GLOBALS['TL_CONFIG']['useAutoItem'] ? '/%s' : '/album/%s'), $objAlbum->alias), $arrLink['language']);
+		$objTemplate->href = $href;
 
         return $objTemplate;
     }
@@ -464,9 +468,8 @@ abstract class Pa2ViewParser extends \Frontend
         $individualId = substr(md5('pa2_'.$GLOBALS['pa2']['individualId']['count']), 1, 12);
 
         // If new id already in id list exists
-        if (is_array($GLOBALS['pa2']['individualId']['id']) && in_array($individualId,
-                $GLOBALS['pa2']['individualId']['id'])
-        ) {
+        if(isset($GLOBALS['pa2']['individualId']['id']) && is_array($GLOBALS['pa2']['individualId']['id']) && in_array($individualId, $GLOBALS['pa2']['individualId']['id']))
+        {
             return $this->generateIndividualId();
         }
 
@@ -493,11 +496,11 @@ abstract class Pa2ViewParser extends \Frontend
         $strAlt = $objImage->name;
 
         // If there is a meta title in the current language, then use this meta data
-        if ($objImage->meta[$GLOBALS['TL_LANGUAGE']] != '') {
+        if(isset($objImage->meta[$GLOBALS['TL_LANGUAGE']]) != '') {
             $strAlt = $objImage->meta[$GLOBALS['TL_LANGUAGE']]['title'];
         } // Else if there is a meta title in english, use this meta data
         else {
-            if ($objImage->meta['en'] != '') {
+            if(isset($objImage->meta['en']) != '') {
                 $strAlt = $objImage->meta['en']['title'];
             }
         }

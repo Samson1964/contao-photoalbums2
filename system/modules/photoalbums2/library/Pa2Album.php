@@ -187,10 +187,16 @@ class Pa2Album extends \Pa2Lib
                     if ($objAlbum->current() instanceof \Photoalbums2\Photoalbums2AlbumModel) {
                         Controller::loadDataContainer($objAlbum->current()->getTable());
 
-                        $arrRow = \TranslationFields::translateDCArray(
-                            $objAlbum->row(),
-                            $objAlbum->current()->getTable()
-                        );
+                        $arrRow = $objAlbum->row();
+                        $arrRow['event'] = \TranslationFieldsHelper::getTranslation($arrRow['event']);
+                        $arrRow['place'] = \TranslationFieldsHelper::getTranslation($arrRow['place']);
+                        $arrRow['photographer'] = \TranslationFieldsHelper::getTranslation($arrRow['photographer']);
+                        $arrRow['description'] = \TranslationFieldsHelper::getTranslation($arrRow['description']);
+                        
+                        //$arrRow = \TranslationFields::translateDCArray(
+                        //    $objAlbum->row(),
+                        //    $objAlbum->current()->getTable()
+                        //);
                         $objAlbum->setRow($arrRow);
                     }
 

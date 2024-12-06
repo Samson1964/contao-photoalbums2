@@ -88,7 +88,7 @@ class Pa2Backend extends \Backend
      */
     public function getPa2WrapTemplates(\DataContainer $dc)
     {
-        $intPid = $dc->activeRecord->pid;
+		$intPid = isset($dc->activeRecord->pid) ? $dc->activeRecord->pid : 0;
 
         if (\Input::get('act') == 'overrideAll') {
             $intPid = \Input::get('id');
@@ -106,7 +106,7 @@ class Pa2Backend extends \Backend
      */
     public function getPa2AlbumTemplates(\DataContainer $dc)
     {
-        $intPid = $dc->activeRecord->pid;
+		$intPid = isset($dc->activeRecord->pid) ? $dc->activeRecord->pid : 0;
 
         if (\Input::get('act') == 'overrideAll') {
             $intPid = \Input::get('id');
@@ -124,7 +124,7 @@ class Pa2Backend extends \Backend
      */
     public function getPa2ImageTemplates(\DataContainer $dc)
     {
-        $intPid = $dc->activeRecord->pid;
+		$intPid = isset($dc->activeRecord->pid) ? $dc->activeRecord->pid : 0;
 
         if (\Input::get('act') == 'overrideAll') {
             $intPid = \Input::get('id');

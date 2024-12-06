@@ -34,6 +34,7 @@ ClassLoader::addClasses(array(
     'Photoalbums2\Pa2TimeFilter'            => 'system/modules/photoalbums2/classes/Pa2TimeFilter.php',
     'Photoalbums2\Pa2ViewParser'            => 'system/modules/photoalbums2/classes/Pa2ViewParser.php',
     'Photoalbums2\Updater'                  => 'system/modules/photoalbums2/classes/Updater.php',
+    'Photoalbums2\TranslationFieldsHelper'  => 'system/modules/photoalbums2/classes/TranslationFieldsHelper.php',
     // Elements
     'Photoalbums2\ContentPhotoalbums2'      => 'system/modules/photoalbums2/elements/ContentPhotoalbums2.php',
     // Library
@@ -44,6 +45,7 @@ ClassLoader::addClasses(array(
     // Models
     'Photoalbums2\Photoalbums2AlbumModel'   => 'system/modules/photoalbums2/models/Photoalbums2AlbumModel.php',
     'Photoalbums2\Photoalbums2ArchiveModel' => 'system/modules/photoalbums2/models/Photoalbums2ArchiveModel.php',
+    'Photoalbums2\TranslationFieldsModel'   => 'system/modules/photoalbums2/models/TranslationFieldsModel.php',
     // Modules
     'Photoalbums2\ModulePhotoalbums2'       => 'system/modules/photoalbums2/modules/ModulePhotoalbums2.php',
     'Photoalbums2\ModulePhotoalbums2List'   => 'system/modules/photoalbums2/modules/ModulePhotoalbums2List.php',

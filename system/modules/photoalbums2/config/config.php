@@ -17,7 +17,7 @@ if (TL_MODE == 'BE') {
 
 // Backend Modules
 $GLOBALS['BE_MOD']['content']['photoalbums2'] = array(
-    'tables' => array('tl_photoalbums2_archive', 'tl_photoalbums2_album'),
+    'tables' => array('tl_photoalbums2_archive', 'tl_photoalbums2_album', 'tl_translation_fields'),
     'icon'   => 'system/modules/photoalbums2/assets/icon.gif',
 );
 
@@ -86,3 +86,12 @@ $GLOBALS['pa2']['timeFilterOptions'] = array('days', 'weeks', 'months', 'years')
 
 // Meta fields
 $GLOBALS['pa2']['metaFields'] = array('date', 'event', 'place', 'photographer', 'description', 'numberOfAllImages');
+
+/**
+ * -------------------------------------------------------------------------
+ * Models registrieren                                  
+ * -------------------------------------------------------------------------
+ */
+
+$GLOBALS['TL_MODELS']['tl_translation_fields'] = \TranslationFieldsModel::class;
+

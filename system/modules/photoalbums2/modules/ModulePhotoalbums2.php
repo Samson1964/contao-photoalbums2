@@ -114,7 +114,7 @@ class ModulePhotoalbums2 extends \Module
     protected function compile()
     {
         global $objPage;
-
+        
         // Import CSS files
         $objPa2 = new \Pa2();
         $objPa2->addCssFile();
