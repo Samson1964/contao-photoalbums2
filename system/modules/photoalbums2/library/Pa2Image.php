@@ -92,8 +92,7 @@ class Pa2Image extends \Controller
                 if (count($arrMergeData) > 0) {
                     $arrData = array_merge($arrData, $arrMergeData);
                 }
-
-                $this->addImageToTemplate($objTemplate, $arrData);
+                \Controller::addImageToTemplate($objTemplate, $arrData, null, null, $objFile);
                 $this->addFileMetaDataToTemplate($objTemplate, $objFile);
             }
         }
