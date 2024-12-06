@@ -493,7 +493,7 @@ class tl_photoalbums2_album extends Pa2Backend
             }
         }
 
-        $return  = '<div class="cte_type '.$key.'"'.((!$GLOBALS['TL_CONFIG']['pa2HidePreviewImageInBackend']) ?: ' style="margin-bottom: 0px;"').'>';
+        $return  = '<div class="cte_type '.$key.'"'.((!isset($GLOBALS['TL_CONFIG']['pa2HidePreviewImageInBackend'])) ?: ' style="margin-bottom: 0px;"').'>';
         $return .= $arrRow['title'];
         $return .= '</div>';
 

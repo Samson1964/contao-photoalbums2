@@ -1,5 +1,12 @@
 # Changelog Photoalbums2
 
+* Change: Änderungen wegen translation-fields-bundle
+
+## Version 1.0.4 (2024-12-06)
+
+* Fix: Anpassungen auf PHP 8
+* Delete: Abhängigkeit schachbulle/translation-fields-bundle, um die Probleme mit TranslationFields zu umgehen
+
 ## Version 1.0.3 (2024-12-05)
 
 * Fix: Anpassungen auf PHP 8 nachdem jetzt craffft/translation-fields-bundle aktiv ist
