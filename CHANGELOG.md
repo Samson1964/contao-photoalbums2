@@ -2,6 +2,10 @@
 
 * Change: Änderungen wegen translation-fields-bundle
 
+## Version 1.0.5 (2024-12-06)
+
+* Fix: composer.json nicht valide
+
 ## Version 1.0.4 (2024-12-06)
 
 * Fix: Anpassungen auf PHP 8
