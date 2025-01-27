@@ -1,5 +1,9 @@
 # Changelog Photoalbums2
 
+## Version 1.1.2 (2025-01-27)
+
+* Fix: TranslationFieldsHelper, Funktion getTranslation -> Abfrage is_string davorgesetzt, weil Texte nicht richtig erkannt werden
+
 ## Version 1.1.1 (2024-12-06)
 
 * Fix: Return value of Contao\CoreBundle\File\Metadata::getAlt() must be of the type string, bool returned (beim Aufruf einer Galerie) -> in Pa2Image haben beim Aufruf von \Controller::addImageToTemplate($objTemplate, $arrData, null, null, $objFile); die letzten drei Parameter gefehlt

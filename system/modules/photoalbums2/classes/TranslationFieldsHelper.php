@@ -31,6 +31,8 @@ class TranslationFieldsHelper
 	 */
 	public static function getTranslation($varValue)
 	{
+		if(is_string($varValue)) return $varValue;
+
 		// Wert in Integer umwandeln
 		$intValue = (int)$varValue;
 		
@@ -43,7 +45,7 @@ class TranslationFieldsHelper
 		}
 		else
 		{
-			// Wert unverändert zurückgeben
+			// Wert unverÃ¤ndert zurÃ¼ckgeben
 			return ($varValue == 0 ? '' : $varValue);
 		}
 	}
