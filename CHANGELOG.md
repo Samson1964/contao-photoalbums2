@@ -1,5 +1,9 @@
 # Changelog Photoalbums2
 
+## Version 1.1.3 (2025-06-23)
+
+* Add: webp zu erlaubten Bildtypen hinzugefügt
+
 ## Version 1.1.2 (2025-01-27)
 
 * Fix: TranslationFieldsHelper, Funktion getTranslation -> Abfrage is_string davorgesetzt, weil Texte nicht richtig erkannt werden

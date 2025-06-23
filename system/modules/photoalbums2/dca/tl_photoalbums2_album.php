@@ -177,7 +177,7 @@ $GLOBALS['TL_DCA']['tl_photoalbums2_album'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['images'],
             'exclude'                 => true,
             'inputType'               => 'fileTree',
-            'eval'                    => array('mandatory' => true, 'submitOnChange' => true, 'multiple' => true, 'fieldType' => 'checkbox', 'files' => true, 'extensions' => 'png,jpg,jpeg,gif'),
+            'eval'                    => array('mandatory' => true, 'submitOnChange' => true, 'multiple' => true, 'fieldType' => 'checkbox', 'files' => true, 'extensions' => 'png,jpg,jpeg,gif,webp'),
             'sql'                     => "blob NULL",
         ),
         'imageSortType' => array(
@@ -193,7 +193,7 @@ $GLOBALS['TL_DCA']['tl_photoalbums2_album'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['imageSort'],
             'exclude'                 => true,
             'inputType'               => 'ImageSortWizard',
-            'eval'                    => array('sortfiles' => 'images', 'extensions' => 'png,jpg,jpeg,gif'),
+            'eval'                    => array('sortfiles' => 'images', 'extensions' => 'png,jpg,jpeg,gif,webp'),
             'sql'                     => "blob NULL",
         ),
         'previewImageType' => array(
@@ -209,7 +209,7 @@ $GLOBALS['TL_DCA']['tl_photoalbums2_album'] = array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['previewImage'],
             'exclude'                 => true,
             'inputType'               => 'fileTree',
-            'eval'                    => array('mandatory' => true, 'fieldType' => 'radio', 'files' => true, 'filesOnly' => true, 'extensions' => 'png,jpg,jpeg,gif'),
+            'eval'                    => array('mandatory' => true, 'fieldType' => 'radio', 'files' => true, 'filesOnly' => true, 'extensions' => 'png,jpg,jpeg,gif,webp'),
             'sql'                     => "binary(16) NULL",
         ),
         'event' => array(
