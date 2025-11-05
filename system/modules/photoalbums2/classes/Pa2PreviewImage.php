@@ -220,7 +220,7 @@ class Pa2PreviewImage extends \Controller
         $this->objAlbum->images = deserialize($this->objAlbum->images);
 
         // Get all image ids and save them in the images array
-        $objImageSorter = new \ImageSorter(
+        $objImageSorter = new \Photoalbums2\ImageSorter(
             $this->objAlbum->images,
             $GLOBALS['TL_DCA']['tl_photoalbums2_album']['fields']['images']['eval']['extensions']
         );

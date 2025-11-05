@@ -192,7 +192,7 @@ $GLOBALS['TL_DCA']['tl_photoalbums2_album'] = array(
         'imageSort' => array(
             'label'                   => &$GLOBALS['TL_LANG']['tl_photoalbums2_album']['imageSort'],
             'exclude'                 => true,
-            'inputType'               => 'ImageSortWizard',
+            'inputType'               => 'Photoalbums2\ImageSortWizard',
             'eval'                    => array('sortfiles' => 'images', 'extensions' => 'png,jpg,jpeg,gif,webp'),
             'sql'                     => "blob NULL",
         ),

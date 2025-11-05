@@ -35,6 +35,7 @@ ClassLoader::addClasses(array(
     'Photoalbums2\Pa2ViewParser'            => 'system/modules/photoalbums2/classes/Pa2ViewParser.php',
     'Photoalbums2\Updater'                  => 'system/modules/photoalbums2/classes/Updater.php',
     'Photoalbums2\TranslationFieldsHelper'  => 'system/modules/photoalbums2/classes/TranslationFieldsHelper.php',
+    'Photoalbums2\ImageSorter'              => 'system/modules/photoalbums2/classes/ImageSorter.php',
     // Elements
     'Photoalbums2\ContentPhotoalbums2'      => 'system/modules/photoalbums2/elements/ContentPhotoalbums2.php',
     // Library
@@ -50,6 +51,8 @@ ClassLoader::addClasses(array(
     'Photoalbums2\ModulePhotoalbums2'       => 'system/modules/photoalbums2/modules/ModulePhotoalbums2.php',
     'Photoalbums2\ModulePhotoalbums2List'   => 'system/modules/photoalbums2/modules/ModulePhotoalbums2List.php',
     'Photoalbums2\ModulePhotoalbums2View'   => 'system/modules/photoalbums2/modules/ModulePhotoalbums2View.php',
+    // Widgets
+    'Photoalbums2\ImageSortWizard'          => 'system/modules/photoalbums2/widgets/ImageSortWizard.php',
 ));
 
 /**

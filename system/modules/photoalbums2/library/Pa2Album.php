@@ -16,7 +16,7 @@
 namespace Photoalbums2;
 
 use \Contao\Controller;
-use Contao\FrontendUser;
+use \Contao\FrontendUser;
 
 /**
  * Class Pa2Album
@@ -188,10 +188,10 @@ class Pa2Album extends \Pa2Lib
                         Controller::loadDataContainer($objAlbum->current()->getTable());
 
                         $arrRow = $objAlbum->row();
-                        $arrRow['event'] = \TranslationFieldsHelper::getTranslation($arrRow['event']);
-                        $arrRow['place'] = \TranslationFieldsHelper::getTranslation($arrRow['place']);
-                        $arrRow['photographer'] = \TranslationFieldsHelper::getTranslation($arrRow['photographer']);
-                        $arrRow['description'] = \TranslationFieldsHelper::getTranslation($arrRow['description']);
+                        $arrRow['event'] = \Photoalbums2\TranslationFieldsHelper::getTranslation($arrRow['event']);
+                        $arrRow['place'] = \Photoalbums2\TranslationFieldsHelper::getTranslation($arrRow['place']);
+                        $arrRow['photographer'] = \Photoalbums2\TranslationFieldsHelper::getTranslation($arrRow['photographer']);
+                        $arrRow['description'] = \Photoalbums2\TranslationFieldsHelper::getTranslation($arrRow['description']);
                         
                         //$arrRow = \TranslationFields::translateDCArray(
                         //    $objAlbum->row(),

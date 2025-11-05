@@ -31,22 +31,22 @@ class TranslationFieldsHelper
 	 */
 	public static function getTranslation($varValue)
 	{
-		if(is_string($varValue)) return $varValue;
-
-		// Wert in Integer umwandeln
 		$intValue = (int)$varValue;
-		
-		if($intValue == $varValue && $intValue != 0)
+
+		if($varValue == $intValue)
 		{
-			// Wert ist ein Integer, deshalb richtigen Wert aus Tabelle laden
-			$objTranslation = \TranslationFieldsModel::findBy(array('fid=?', 'language=?'), array($intValue, 'de'));
-			if($objTranslation) return $objTranslation->content;
+			$objRecord = \Database::getInstance()->prepare("SELECT * FROM tl_translation_fields WHERE fid=? AND language=?")
+			                                     ->execute($varValue, 'de');
+			if($objRecord->numRows)
+			{
+				return $objRecord->content;
+			}
 			else return $varValue;
 		}
 		else
 		{
 			// Wert unverändert zurückgeben
-			return ($varValue == 0 ? '' : $varValue);
+			return $varValue == 0 ? '' : $varValue;
 		}
 	}
 

@@ -1,5 +1,12 @@
 # Changelog Photoalbums2
 
+## Version 1.2.0 (2025-11-05)
+
+* Fix: count(): Argument #1 ($value) must be of type Countable|array, null given in /system/modules/photoalbums2/classes/Pa2AlbumViewParser.php (line 85) 
+* Fix: Warning: Attempt to read property "type" on null in contao-imagesortwizard/system/modules/imagesortwizard/classes/ImageSorter.php (line 117) 
+* Fix: ImageSorter in die Erweiterung integriert (bisher externe Erweiterung)
+* Fix: Funktion getTranslation, da die IDs nicht richtig aufgelöst wurden.
+
 ## Version 1.1.3 (2025-06-23)
 
 * Add: webp zu erlaubten Bildtypen hinzugefügt
@@ -46,4 +53,3 @@
 ## Version 1.0.0 (2024-12-05)
 
 Initialversion als Fork von https://github.com/Craffft/contao-photoalbums2
-

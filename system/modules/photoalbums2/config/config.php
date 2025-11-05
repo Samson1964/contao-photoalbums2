@@ -95,3 +95,7 @@ $GLOBALS['pa2']['metaFields'] = array('date', 'event', 'place', 'photographer', 
 
 $GLOBALS['TL_MODELS']['tl_translation_fields'] = \TranslationFieldsModel::class;
 
+/**                                                       
+ * Form fields                                            
+ */                                                       
+$GLOBALS['BE_FFL']['ImageSortWizard'] = 'ImageSortWizard';   
